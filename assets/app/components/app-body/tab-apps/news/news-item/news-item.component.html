@@ -1,0 +1,34 @@
+<tr style="display: block;">
+  <td>
+    <p>
+      {{ inNew._header }}
+    </p>
+  </td>
+  <td>
+    <p>
+      {{ getLanguageName() }}
+    </p>
+  </td>
+  <td>
+    <p>
+      {{ getAppName() }}
+    </p>
+  </td>
+  <td>
+    <p>
+      {{ inNew._date_visible }}
+    </p>
+  </td>
+  <td>
+    <button type='button' class='btn btn-info' style='width: 100%;' (click)="publish()"><b>{{ getPublishedName() }}</b></button>
+  </td>
+  <td>
+    <button type='button' class='btn btn-primary' style='width: 100%;' (click)="onEdit()"><b>Editar</b></button>
+  </td>
+  <td>
+    <button type='button' class='btn btn-danger' style='width: 100%;' (click)="onDelete()">Desactivar</button>
+  </td>
+</tr>
+<tr>
+  {{ inNew._body }}
+</tr>

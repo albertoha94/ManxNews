@@ -1,0 +1,52 @@
+<div class="panel panel-primary">
+  <div class="panel-body">
+    <h3>Agregar noticias</h3>
+    <form (ngSubmit)="onSubmit()" [formGroup]="_formNew">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="news_header">Encabezado de noticia</label>
+            <input type="text" class="form-control" id="news_header" [ngModel]="_new?._header" maxlength="30" formControlName="news_header">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="new_app">Aplicación</label>
+            <select id="new_app" formControlName="new_app" [ngModel]="_new?._appId">
+                <option *ngFor="let app of _appList" 
+                        [value]="app._id"
+                        [selected]="_new?._appId === app._id">
+                  {{app._title}}
+                </option>
+              </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="new_lang">Lenguaje</label>
+            <select id="new_lang" formControlName="new_lang" [ngModel]="_new?._languageId">
+                <option *ngFor="let lang of _languageList" 
+                        [value]="lang._id"
+                        [selected]="_new?._languageId === lang._id">
+                  {{lang._title}}
+                </option>
+              </select>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="new_content">Contenido</label>
+          <textarea rows="3" id="new_content" [ngModel]="_new?._body" formControlName="new_content">
+        </textarea>
+        </div>
+
+      </div>
+
+      <button type="button" class="btn btn-default" (click)="onClear()">Limpiar</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!_formNew.valid">Guardar</button>
+    </form>
+  </div>
+</div>

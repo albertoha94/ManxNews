@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <input type="search" name="" id="input_search_plat" class="form-control" value="" required="required" title="">
+      </div>
+      <div class="col-md-3">
+        <select class="form-control"> 
+            <option value="">bla</option>
+          </select>
+      </div>
+    </div>
+    <table class="table table-striped additional-tables">
+      <thead class="additional-headtable">
+        <tr style="display: block;">
+          <th>
+            Nombre
+          </th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="additional-tablebody">
+        <app-platform-item [inPlatform]="plat" *ngFor="let plat of _platformList">
+        </app-platform-item>
+      </tbody>
+    </table>
+  </div>
+</div>

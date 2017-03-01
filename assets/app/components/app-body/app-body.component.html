@@ -1,0 +1,15 @@
+<header class="row">
+  <nav class="col-md-10 col-sm-offset-1">
+    <ul class="nav nav-tabs nav-justified">
+      <li routerLinkActive="active"><a [routerLink]="['/recent']">Información Recientes</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['/apps']">Aplicaciones</a></li>
+      <li routerLinkActive="active"><a [routerLink]="['/extra']">Información Adicional</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="row spacing">
+  <!-- Que es esto? 
+     Acts as a placeholder that Angular dynamically fills based on the current router state.
+    -->
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,4 @@
+npm install angular2-image-upload --save
+npm install --save mongoose-unique-validator
+npm install --save mongoose
+npm install --save angular2-modal
