@@ -17,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
 export class AppInputComponent implements OnInit {
 
   //-- Variables ---------------------------------------------------------------------------------/
-  _app: App = new App('', '', '');
+  _app: App;
   _languageList: Language[];
   _platformList: Platform[];
   _formApp: FormGroup;
@@ -77,7 +77,7 @@ export class AppInputComponent implements OnInit {
     //-- Si el objeto existe, estamos editando.
     //console.log(this._app);
     if (this._app) {
-      //console.log("Editando app");
+      console.log("Editando app");
 
       this._app._title = this._formApp.value.app_name;
       this._app._languageId = this._formApp.value.app_lang;
@@ -91,7 +91,7 @@ export class AppInputComponent implements OnInit {
         );
 
     } else {
-      //console.log('Nueva app');
+      console.log('Nueva app');
 
       //-- Si no, es nuevo.
       const app = new App(

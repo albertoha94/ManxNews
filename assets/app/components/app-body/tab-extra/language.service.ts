@@ -24,7 +24,7 @@ export class LanguageService {
         this._languageList.splice(this._languageList.indexOf(oLanguage), 1);
         const body = JSON.stringify(oLanguage);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.oHttp.patch('http://localhost:3000/db/deleteLanguage/' + oLanguage._id, body, { headers: headers })
+        return this.oHttp.patch('http://192.168.1.77:3000/db/deleteLanguage/' + oLanguage._id, body, { headers: headers })
             .map((response: Response) => {
                 return response.json();
                 //console.log("Lista local");
@@ -38,7 +38,7 @@ export class LanguageService {
      * en un arreglo.
      */
     getLanguages() {
-        return this.oHttp.get('http://localhost:3000/db/getLanguage')
+        return this.oHttp.get('http://192.168.1.77:3000/db/getLanguage')
             .map((oResponse: Response) => {
                 const oLanguageList = oResponse.json().obj;
                 let transformedLanguages: Language[] = [];
@@ -60,7 +60,7 @@ export class LanguageService {
         const body = JSON.stringify(oLanguage);
         //console.log(body);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.oHttp.post('http://localhost:3000/db/addLanguage', body, { headers: headers })
+        return this.oHttp.post('http://192.168.1.77:3000/db/addLanguage', body, { headers: headers })
             .map((response: Response) => {
                 const result = response.json();
                 const language = new Language(result.obj.title, result.obj.abbreviation, result.obj._id);
@@ -87,7 +87,7 @@ export class LanguageService {
     updateLanguage(oLanguage: Language) {
         const body = JSON.stringify(oLanguage);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.oHttp.patch('http://localhost:3000/db/updateLanguage/' + oLanguage._id, body, { headers: headers })
+        return this.oHttp.patch('http://192.168.1.77:3000/db/updateLanguage/' + oLanguage._id, body, { headers: headers })
             .map((response: Response) => {
                 return response.json();
                 //console.log("Lista local");
