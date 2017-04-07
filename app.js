@@ -13,7 +13,7 @@ var platformRoutes = require('./routes/platforms');
 var newsRoutes = require('./routes/news')
 
 var app = express();
-mongoose.connect('192.168.1.77:27017/dbnews');
+mongoose.connect('192.168.1.11:27017/dbnews');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

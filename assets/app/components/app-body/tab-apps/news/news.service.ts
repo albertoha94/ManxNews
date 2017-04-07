@@ -35,7 +35,7 @@ export class NewsService {
         //-- Desactivandolo de la base de datos.
         const body = JSON.stringify(oNew);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.oHttp.patch('http://192.168.1.77:3000/db/deleteNews/' + oNew._id, body, { headers: headers })
+        return this.oHttp.patch('http://192.168.1.11:3000/db/deleteNews/' + oNew._id, body, { headers: headers })
             .map((response: Response) => {
                 return response.json();
             })
@@ -49,7 +49,7 @@ export class NewsService {
     updateNews(oNew: News) {
         const body = JSON.stringify(oNew);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.oHttp.patch('http://192.168.1.77:3000/db/updateNews/' + oNew._id, body, { headers: headers })
+        return this.oHttp.patch('http://192.168.1.11:3000/db/updateNews/' + oNew._id, body, { headers: headers })
             .map((response: Response) => {
                 return response.json();
             })
@@ -63,7 +63,7 @@ export class NewsService {
     addNews(oNew: News) {
         const body = JSON.stringify(oNew);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.oHttp.post('http://192.168.1.77:3000/db/addNews', body, { headers: headers })
+        return this.oHttp.post('http://192.168.1.11:3000/db/addNews', body, { headers: headers })
             .map((response: Response) => {
                 const result = response.json();
                 const news = new News(result.obj.header, result.obj.body, result.obj.languageId,
@@ -80,7 +80,7 @@ export class NewsService {
      * en un arreglo.
      */
     getNews() {
-        return this.oHttp.get('http://192.168.1.77:3000/db/getNews')
+        return this.oHttp.get('http://192.168.1.11:3000/db/getNews')
             .map((oResponse: Response) => {
                 const oNewsList = oResponse.json().obj;
                 let transformedNews: News[] = [];

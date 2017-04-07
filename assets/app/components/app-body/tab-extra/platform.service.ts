@@ -24,7 +24,7 @@ export class PlatformService {
         this._platformList.splice(this._platformList.indexOf(oPlatform), 1);
         const body = JSON.stringify(oPlatform);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.oHttp.patch('http://192.168.1.77:3000/db/deletePlatform/' + oPlatform._id, body, { headers: headers })
+        return this.oHttp.patch('http://192.168.1.11:3000/db/deletePlatform/' + oPlatform._id, body, { headers: headers })
             .map((response: Response) => {
                 return response.json();
             })
@@ -36,7 +36,7 @@ export class PlatformService {
      * en un arreglo.
      */
     getPlatforms() {
-        return this.oHttp.get('http://192.168.1.77:3000/db/getPlatform')
+        return this.oHttp.get('http://192.168.1.11:3000/db/getPlatform')
             .map((oResponse: Response) => {
                 const oPlatformList = oResponse.json().obj;
                 let transformedPlatforms: Platform[] = [];
@@ -57,7 +57,7 @@ export class PlatformService {
     addPlatform(oPlatform: Platform) {
         const body = JSON.stringify(oPlatform);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.oHttp.post('http://192.168.1.77:3000/db/addPlatform', body, { headers: headers })
+        return this.oHttp.post('http://192.168.1.11:3000/db/addPlatform', body, { headers: headers })
             .map((response: Response) => {
                 const result = response.json();
                 const platform = new Platform(result.obj.title, result.obj._id);
@@ -82,7 +82,7 @@ export class PlatformService {
     updatePlatform(oPlatform: Platform) {
         const body = JSON.stringify(oPlatform);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.oHttp.patch('http://192.168.1.77:3000/db/updatePlatform/' + oPlatform._id, body, { headers: headers })
+        return this.oHttp.patch('http://192.168.1.11:3000/db/updatePlatform/' + oPlatform._id, body, { headers: headers })
             .map((response: Response) => {
                 return response.json();
             })

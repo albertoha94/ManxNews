@@ -32,7 +32,7 @@ export class AppService {
         this._appList.splice(this._appList.indexOf(oApp), 1);
         const body = JSON.stringify(oApp);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.oHttp.patch('http://192.168.1.77:3000/db/deleteApp/' + oApp._id, body, { headers: headers })
+        return this.oHttp.patch('http://192.168.1.11:3000/db/deleteApp/' + oApp._id, body, { headers: headers })
             .map((response: Response) => {
                 return response.json();
             })
@@ -46,7 +46,7 @@ export class AppService {
     updateApp(oApp: App) {
         const body = JSON.stringify(oApp);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.oHttp.patch('http://192.168.1.77:3000/db/updateApp/' + oApp._id, body, { headers: headers })
+        return this.oHttp.patch('http://192.168.1.11:3000/db/updateApp/' + oApp._id, body, { headers: headers })
             .map((response: Response) => {
                 return response.json();
             })
@@ -60,7 +60,7 @@ export class AppService {
     addApp(oApp: App) {
         const body = JSON.stringify(oApp);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.oHttp.post('http://192.168.1.77:3000/db/addApp', body, { headers: headers })
+        return this.oHttp.post('http://192.168.1.11:3000/db/addApp', body, { headers: headers })
             .map((response: Response) => {
                 const result = response.json();
                 const app = new App(result.obj.title, result.obj.languageId, result.obj.platformId, result.obj._id);
@@ -75,7 +75,7 @@ export class AppService {
      * en un arreglo.
      */
     getApps() {
-        return this.oHttp.get('http://192.168.1.77:3000/db/getApps')
+        return this.oHttp.get('http://192.168.1.11:3000/db/getApps')
             .map((oResponse: Response) => {
                 const oAppList = oResponse.json().obj;
                 let transformedApp: App[] = [];
